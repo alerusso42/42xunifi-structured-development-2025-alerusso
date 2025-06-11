@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   segmented_runs.h                                   :+:      :+:    :+:   */
+/*   critical_window.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:33:27 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/11 10:56:35 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/11 11:20:31 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SEGMENTED_RUNS_H
-# define SEGMENTED_RUNS_H
+#ifndef CRITICAL_WINDOW_H
+# define CRITICAL_WINDOW_H
 
 # include <sys/time.h>
 # include <sys/wait.h>
@@ -19,9 +19,9 @@
 # include <limits.h>
 # include <unistd.h>
 
-# define SIZE 100
+# define SIZE 7
 
-int     count_segments(const int *arr, int size);
+int 	count_critical_windows(const int *readings, int size);
 int		random(int size);
 
 #endif
