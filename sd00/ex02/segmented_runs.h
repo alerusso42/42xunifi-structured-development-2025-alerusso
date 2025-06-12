@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:33:27 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/11 10:56:35 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/12 09:19:56 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define SIZE 100
 
-int     count_segments(const int *arr, int size);
-int		random(int size);
+int	count_segments(const int *arr, int size);
+int	random(int size);
 
 #endif

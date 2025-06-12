@@ -6,82 +6,97 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:33:30 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/11 11:21:48 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/12 09:19:41 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "critical_window.h"
 
-static int 		check_segment(const int *arr, int size, int i);
-static float	average(const int *arr, int size);
+int		bigger_than_150(const int *arr, int size, int i);
+float	average(const int *arr, int size);
+int		three_days_bigger_70(const int *arr, int size, int i);
 
-int	random(int size)
-{
-	struct timeval	time;
+// int	random(int size)
+// {
+// 	struct timeval	time;
 
-	usleep(1000);
-	gettimeofday(&time, 0);
-	return (time.tv_usec % size);
-}
+// 	usleep(1000);
+// 	gettimeofday(&time, 0);
+// 	return (time.tv_usec % size);
+// }
 
-int	main(void)
-{
-	int				nums[SIZE];
-	int				i;
+// int	main(void)
+// {
+// 	int	nums[SIZE];
+// 	int	i;
 
-	i = 0;
-	while (i != SIZE)
-	{
-		nums[i] = random(SIZE * 15);
-		printf("%d:\t%d\n", i, nums[i]);
-		++i;
-	}
-	int	test[10] = {0, 1, 1, -1};
-	printf("\nSegments:\t%d\n", count_critical_windows(nums, SIZE));
-}
+// 	i = 0;
+// 	while (i != SIZE)
+// 	{
+// 		nums[i] = random(SIZE * 20);
+// 		printf("%d:\t%d\n", i, nums[i]);
+// 		++i;
+// 	}
+// 	printf("\nSegments:\t%d\n", count_critical_windows(nums, SIZE));
+// }
 
-
-int count_critical_windows(const int *readings, int size)
+int	count_critical_windows(const int *readings, int size)
 {
 	int		i;
-	int		count;
+	int		critical;
 
 	if (!readings)
 		return (0);
-	i = 0;
-	count = 0;
-	while (i + 5 < size)
+	i = -1;
+	critical = 0;
+	while (++i + 5 <= size)
 	{
-		count += check_segment(readings, size, i);
-		++i;
+		if (!three_days_bigger_70(readings, size, i))
+			continue ;
+		if (bigger_than_150(readings, size, i))
+			continue ;
+		if (average(readings + i, 5) < (float)90)
+			continue ;
+		++critical;
 	}
-	return (count);
+	return (critical);
 }
 
-static int check_segment(const int *arr, int size, int i)
+int	three_days_bigger_70(const int *arr, int size, int i)
 {
 	int	bigger_seventy;
 	int	count;
 
-	if (average(arr + i, 5) >= (float)90)
-		return (1);
 	bigger_seventy = 0;
 	count = 0;
 	while (i != size && count != 5)
 	{
 		if (arr[i] >= 70)
 			bigger_seventy += 1;
-		if (arr[i] > 150)
-			return (1);
 		i++;
 		count++;
 	}
-	if (bigger_seventy > 2)
-		return (1);
-	return (0);
+	return (bigger_seventy > 2);
 }
 
-static float	average(const int *arr, int size)
+int	bigger_than_150(const int *arr, int size, int i)
+{
+	int	bigger_seventy;
+	int	count;
+
+	bigger_seventy = 0;
+	count = 0;
+	while (i != size && count != 5)
+	{
+		if (arr[i] > 150)
+			break ;
+		i++;
+		count++;
+	}
+	return (count != 5);
+}
+
+float	average(const int *arr, int size)
 {
 	float	av;
 	int		i;
@@ -92,8 +107,7 @@ static float	average(const int *arr, int size)
 	i = 0;
 	while (i != (float)size)
 	{
-		if (arr[i] > 0 && arr[i] <= 100)
-			av += arr[i];
+		av += arr[i];
 		++i;
 	}
 	return (av / (float)size);

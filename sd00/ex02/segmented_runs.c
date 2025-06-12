@@ -6,13 +6,13 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:33:30 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/11 11:13:00 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/12 09:20:52 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "segmented_runs.h"
 
-static int check_segment(const int *arr, int size, int *i);
+static int	check_segment(const int *arr, int size, int *i);
 
 int	random(int size)
 {
@@ -38,12 +38,10 @@ int	main(void)
 		printf("%d:\t%d\n", i, nums[i]);
 		++i;
 	}
-	int	test[10] = {0, 1, 1, -1};
 	printf("\nSegments:\t%d\n", count_segments(nums, SIZE));
 }
 
-
-int count_segments(const int *arr, int size)
+int	count_segments(const int *arr, int size)
 {
 	int		i;
 	int		count;
@@ -61,7 +59,7 @@ int count_segments(const int *arr, int size)
 	return (count);
 }
 
-static int check_segment(const int *arr, int size, int *i)
+static int	check_segment(const int *arr, int size, int *i)
 {
 	int	previous;
 	int	current;
