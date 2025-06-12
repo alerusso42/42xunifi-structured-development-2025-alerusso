@@ -12,6 +12,7 @@
 
 #include "grade_mapping.h"
 
+// returns a positive integer less or equal than size
 int	random(int size)
 {
 	struct timeval	time;
@@ -125,7 +126,7 @@ int	main(void)
 
 	i = -1;
 	while (++i != SIZE)
-		grades_int[i] = random(SIZE);
+		grades_int[i] = random(100);
 	map_scores(grades_int, SIZE, map, (const char **)grades_conv);
 	i = -1;
 	while (++i != SIZE)
