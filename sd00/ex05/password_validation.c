@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   password_validation.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 11:33:30 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/12 15:51:11 by alerusso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "password_validation.h"
 
 
@@ -125,12 +113,12 @@ PwStatus validate_password(const char *new_pw, const char *curr_pw)
 	return (data);
 }
 
-int	main(int argc, char *argv[])
-{
-	PwStatus	data;
+// int	main(int argc, char *argv[])
+// {
+// 	PwStatus	data;
 
-	if (argc != 3)
-		return (1);
-	data = validate_password(argv[1], argv[2]);
-	return (data.stat);
-}
+// 	if (argc != 3)
+// 		return (1);
+// 	data = validate_password(argv[1], argv[2]);
+// 	return (data.stat);
+// }

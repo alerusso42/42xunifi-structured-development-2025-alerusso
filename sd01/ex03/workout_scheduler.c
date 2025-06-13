@@ -2,18 +2,18 @@
 
 struct WorkoutPlan *create_workout_schedule(char *username)
 {
-   struct UserData *udata;
-   struct WorkoutPlan *wplan;
-   int days;
+	struct UserData *udata;
+	struct WorkoutPlan *wplan;
+	int days;
 
-   udata = get_user_data(username);
-   wplan = build_base_plan(udata);
-   refine_plan(wplan, udata);
-   days = determine_duration(plan);
-   assign_daily_exercises(wplan, days);
-   assign_daily_tips(wplan, days);
-   free_user_data(udata);
-   return (wplan);
+	udata = get_user_data(username);
+	wplan = build_base_plan(udata);
+	refine_plan(wplan, udata);
+	days = determine_duration(wplan);
+	assign_daily_exercises(wplan, days);
+	assign_daily_tips(wplan, days);
+	free_user_data(udata);
+	return (wplan);
 }
 
 // Returns a new UserData (mocked). Returns NULL on failure.

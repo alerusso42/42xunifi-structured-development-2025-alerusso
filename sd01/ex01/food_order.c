@@ -3,16 +3,16 @@
 
 int process_food_order(struct OrderRequest *request)
 {
-  struct OrderConfirmation *conf;
+	struct OrderConfirmation *conf;
 
-  if (check_restaurant_status(request) == OPEN)
-    conf = create_standard_confirmation();
-  else
-    conf = create_preorder_confirmation();
-  if (!conf)
-    return (1);
-  send_confirmation_notification(conf);
-  return (0);
+	if (check_restaurant_status(request) == OPEN)
+		conf = create_standard_confirmation();
+	else
+		conf = create_preorder_confirmation();
+	if (!conf)
+		return (1);
+	send_confirmation_notification(conf);
+	return (0);
 }
 
 // Checks if the restaurant is open based on the order. Returns 1 if open, 0 if closed.
