@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 18:34:03 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/20 11:50:16 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:24:34 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	set_entries(t_data *data);
 void	parsing(t_data *data);
 bool	unsensitive_check(char c1, char c2);
 int		valid_entry(char *line);
+void	prioritize_main_entry(t_data *data, int entry);
 
 //SECTION - Utils
 

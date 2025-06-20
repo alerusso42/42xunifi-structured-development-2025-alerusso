@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:26:02 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/20 11:41:00 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:24:48 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	parsing(t_data *data)
 	close(fd);
 	while (i != TOTAL_ENTRIES)
 	{
+		prioritize_main_entry(data, i);
 		sort_matrix(data->entries[i]);
 		print_matrix(data, data->entries[i], data->entry[i].filename);
 		offset_matrix(data, i);

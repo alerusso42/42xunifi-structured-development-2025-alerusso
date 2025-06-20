@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:32:40 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/20 10:14:38 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:07:14 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	resize_matr(char ***old_matr, int *size)
 		*size = 2;
 	else
 		*size = *size * 2;
-	new_matr = ft_calloc(*size + 1, sizeof(char *));
+	new_matr = ft_calloc(*size + 2, sizeof(char *));
 	if (!new_matr)
 		return (free(*old_matr), 1);
 	i = 0;
