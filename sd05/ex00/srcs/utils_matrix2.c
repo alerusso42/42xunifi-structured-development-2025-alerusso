@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 10:55:26 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/20 12:47:11 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:22:11 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,25 @@ static void	copy_entries(t_data *data, int entry, int n_elem, char *line)
 {
 	int	i;
 	int	j;
+	int	k;
 
 	j = move_str(data->entries[entry][n_elem], SEPARATOR, data->entry[entry].first_entry);
 	sub_strcpy(line, data->entries[entry][n_elem] + j, SEPARATOR_S, EXCLUDE);
-	j = move_str(data->entries[entry][n_elem], SEPARATOR, data->entry[entry].first_entry + 1);
-	line[j - 1] = SEPARATOR;
+	k = ft_strlen(line);
+	line[k++] = SEPARATOR;
 	i = 0;
 	while (i != TOTAL_ENTRIES)
 	{
 		if (i != data->entry[entry].first_entry)
 		{
 			j = move_str(data->entries[entry][n_elem], SEPARATOR, i);
-			sub_strcpy(line + j, data->entries[entry][n_elem] + j, SEPARATOR_S, EXCLUDE);
-			j = move_str(data->entries[entry][n_elem], SEPARATOR, i + 1);
-			line[j - 1] = SEPARATOR;
+			sub_strcpy(line + k, data->entries[entry][n_elem] + j, SEPARATOR_S, EXCLUDE);
+			k = ft_strlen(line);
+			line[k++] = SEPARATOR;
 		}
 		++i;
 	}
-	line[j - 1] = '\n';
+	line[k - 1] = '\n';
 }
 
 void	prioritize_main_entry(t_data *data, int entry)

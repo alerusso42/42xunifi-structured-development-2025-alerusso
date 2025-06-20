@@ -6,7 +6,7 @@
 /*   By: alerusso <alerusso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 18:34:03 by alerusso          #+#    #+#             */
-/*   Updated: 2025/06/20 11:53:52 by alerusso         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:21:13 by alerusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define TO_TRIM ' '
 # define SEPARATOR ','
-# define SEPARATOR_S ","
+# define SEPARATOR_S ",\n"
 # define D_NAME "lib.csv"
 # define NAMES "id", "author", "book"
 # define FILES "id_"D_NAME, "author_"D_NAME, "book_"D_NAME
